@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="聂小涛的博客">
+    <meta property="og:description" content="卫豪才的博客">
     <meta property="og:type" content="website">
-    <meta name="description" content="聂小涛的博客">
-    <meta name="keyword"  content="hexo,聂小涛,聂小涛的博客,全栈开发,Aircloud">
+    <meta name="description" content="卫豪才的博客">
+    <meta name="keyword"  content="卫豪才,卫豪才的博客,日常分享,技术总结">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -174,7 +174,7 @@
 <h2 id="4-性能消耗较高并且需要高度定制优化的应用：比如视频类应用"><a href="#4-性能消耗较高并且需要高度定制优化的应用：比如视频类应用" class="headerlink" title="4. 性能消耗较高并且需要高度定制优化的应用：比如视频类应用"></a>4. 性能消耗较高并且需要高度定制优化的应用：比如视频类应用</h2><p>Electron 基于 web 架构，所以使用 Electron 开发的应用性能一般来说和 web 比较接近，当然，我们可以通过 Node.js addon 加持的方式让部分场景下性能更高（比如直接使用 c++ 实现一些计算密集型的模块，或者独立出一个非 UI 进程，来处理非 UI 逻辑），不过页面 UI 相关的还是会受限制于 web 的天花板。</p>
 <p>所以，一般来说，以下两种情况可能不适用于 Electron：</p>
 <ol>
-<li><p>在 web 场景下，UI 元素操作比较卡顿，达到瓶颈，必须采用性能更高的原生 UI。不过我建议<strong>不要轻易下这个结论</strong>，一般情况下这种性能问题都是写的代码不够极致，建议先从 web 的角度进行性能优化（比如，长列表场景我们可以<a href="http://niexiaotao.cn/2021/09/04/%E9%80%9A%E8%BF%87%E5%8E%8B%E7%BC%A9%E5%90%88%E6%88%90%E5%B1%82%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/">通过压缩合成层优化性能</a>来数十倍地提高性能）。</p>
+<li><p>在 web 场景下，UI 元素操作比较卡顿，达到瓶颈，必须采用性能更高的原生 UI。不过我建议<strong>不要轻易下这个结论</strong>，一般情况下这种性能问题都是写的代码不够极致，建议先从 web 的角度进行性能优化（比如，长列表场景我们可以<a target="_blank" rel="noopener" href="http://niexiaotao.cn/2021/09/04/%E9%80%9A%E8%BF%87%E5%8E%8B%E7%BC%A9%E5%90%88%E6%88%90%E5%B1%82%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/">通过压缩合成层优化性能</a>来数十倍地提高性能）。</p>
 </li>
 <li><p>对某一项技术有深度依赖，而这项技术在 web 方面存在性能上的天花板。事实上这种情况也并不多见，其中一个合理的场景是视频相关的应用，比如视频会议，或者视频播放器，这类由于 Chrome 本身的渲染流水线的限制，使用 video 标签或者使用 WebGL 都会存在一些性能问题，这个时候我们需要更深入的去进行相关能力的定制，就需要从 Electron 的框架中跳脱出来，或者针对 Electron 进行二次开发。</p>
 </li>
@@ -320,7 +320,7 @@
         <span><a target="_blank" rel="noopener" href="https://www.10000h.top">10000H</a></span>
         <span>/</span>
         
-        <span><a target="_blank" rel="noopener" href="https://niexiaotao.com">Albert&#39;s Page</a></span>
+        <span><a href="https://weihaocai.top">Albert&#39;s Page</a></span>
         <span>/</span>
         
         <span><a href="#">It helps SEO</a></span>
