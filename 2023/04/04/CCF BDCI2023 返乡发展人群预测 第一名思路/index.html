@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="卫豪才的博客">
+    <meta property="og:type" content="website">
+    <meta name="description" content="卫豪才的博客">
+    <meta name="keyword"  content="卫豪才,卫豪才的博客,日常分享,技术总结">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        CCF BDCI2023 返乡发展人群预测 第一名思路 - Albert 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Albert 日常" type="application/atom+xml">
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes study, sometimes code </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Haocai Wei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%BC%80%E5%A4%B4"><span class="toc-text">写在开头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9B%E9%A2%98%E4%BB%BB%E5%8A%A1"><span class="toc-text">赛题任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-text">数据介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="toc-text">数据分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%99%AA%E5%A3%B0%E6%B8%85%E6%B4%97"><span class="toc-text">数据噪声清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E6%A3%80%E9%AA%8C"><span class="toc-text">数据分布检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%A0%87%E6%B3%A8%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">未标注数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="toc-text">特征工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-text">Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E6%8A%80%E5%B7%A7"><span class="toc-text">模型融合技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%9C%89%E7%94%A8"><span class="toc-text">什么有用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E6%88%96%E6%B2%A1%E6%9C%89%E7%94%A8%EF%BC%9F"><span class="toc-text">什么不起作用或没有用？</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> sometimes study, sometimes code </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CCF BDCI2023 返乡发展人群预测 第一名思路
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-04-04 09:27:05</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#BDCI" title="BDCI">BDCI</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#AI竞赛" title="AI竞赛">AI竞赛</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#结构化" title="结构化">结构化</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h2><p>本次比赛是中国计算机学会举办的，<strong>第十届大数据与计算智能大赛</strong>下面唯二的两个结构化赛题，最终名次是<strong>（1/2297)<strong>，且</strong>最终得分第二名与我们的差距比第二名到第十五名还大</strong>。说实话这道题可供总结和学习的地方不多，数据是标准的<strong>简单结构化</strong>类型，不包含任何时间、多模态（图像、文本、语音）信息需要处理。重点是如何做好数据挖掘工作，包括<strong>除噪</strong>（最重要），数据分布差异检验，无标签数据的认识，训练集、测试集A、测试集B数据特点和差异的挖掘等。赛题数据经过模拟和脱敏后一言难尽，<strong>线上线下不一致</strong>，本地CV不可信，我的方法主要就是靠不断提交去试（不知道大佬怎么去做），我最后提交了166次，最高队伍我看提交了快200次。（奖金还没收到，不敢再往下评价赛题，以后有机会细说），总而言之<strong>新手可以花两分钟看一下思路，不用自己去试，可供参考的意义不大</strong>。</p>
+<h2 id="赛题任务"><a href="#赛题任务" class="headerlink" title="赛题任务"></a>赛题任务</h2><p>近年来，中国经济飞速发展，国际地位和国际影响力不断提高，科技发展水平更是突飞猛进。以北京、上海、广州、深圳等城市为首的一线大城市，更是带领着我国经济稳步发展。然而，随着一线城市的生活压力不断增大，越来越多的年轻人选择了返回家乡发展。</p>
+<p>在本次比赛中，您将运用<strong>机器学习</strong>技能，基于中国联通的大数据能力，通过使用对联通的<strong>信令数据、通话数据、互联网行为</strong>等数据进行建模，对个人是否会<strong>返乡工作</strong>进行判断。</p>
+<p>比赛链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.datafountain.cn/competitions/581">https://www.datafountain.cn/competitions/581</a></p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>本次比赛使用ROC曲线下面积AUC（Area Under Curve）作为评价指标，AUC越大，预测越准确。</p>
+<p><img src="/img/bdci_auc.png" alt="img"></p>
+<p>其本质是预测结果正样本排在负样本前面的概率，反映的是分类器对样本的排序能力，因此我们需要输出的是概率而不是01分类。</p>
+<h2 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a><strong>数据介绍</strong></h2><p>赛题的目的是基于中国联通的大数据能力，通过使用对联通的信令、通话、互联网行为等数据进行建模，预测样本返回家乡工作发展的概率。 赛题数据由联通基站产生的用户信令数据、联通用户上网产生的上网行为数据及用户日常通话、短信产生的数据，并<strong>通过了匿名和模拟处理</strong>，特征可以分为以下类别：</p>
+<p>本次比赛的目的是根据客户每月的客户资料预测客户未来不偿还信用卡余额的概率。目标二元变量是通过观察最近一次信用卡账单后 18 个月的绩效窗口来计算的，如果客户在最近一次账单日后的 120 天内未支付到期金额，则将其视为违约事件。</p>
+<ul>
+<li>位置类特特征</li>
+<li>互联网类特征</li>
+<li>通话类特征</li>
+</ul>
+<p>每个文件介绍如下：</p>
+<p>train.csv: 训练集数据，共59872条数据，每个ID一行代表一个人</p>
+<p>dataNoLabel.csv: 训练集未标注数据，共39884条数据</p>
+<p>dataA.csv: 测试集A数据，共49858条数据</p>
+<p>dataB.csv: 测试集B数据，共49926条数据</p>
+<p>submit_example.csv - 格式正确的示例提交文件</p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>首先我们来查看下数据集，数据集中的数据字段都进行了<strong>匿名</strong>处理，且绝大多为数值数据：</p>
+<p><img src="/img/bdci_shuju1.png" alt="image-20230404165523703"></p>
+<p>因数据经过模拟生成，可以看到所有数据数值为3的倍数，且不存在缺失值，但存在大量0值，下图为数据中各特征0值的数量，训练集有约60000样本，有约25个特征0值数量超过<strong>95%<strong>，且所有数值特征的值集中在</strong>0值和小值</strong>：</p>
+<p><img src="/img/bdci_shuju2.png" alt="image-20230404170046142"></p>
+<p>前三个特征为类别特征，类别分布比较均衡：</p>
+<p><img src="/img/bdci_shuju3.png" alt="bdci_shuju3"></p>
+<p>接下来我们可以查看比赛中我们认为比较重要的一个数值特征’f19’各数值分布情况，可以看到大多数值还是集中在0值和小值附近：</p>
+<p><img src="/img/bdci_shuju4.png" alt="image-20230404011141158"></p>
+<h2 id="数据噪声清洗"><a href="#数据噪声清洗" class="headerlink" title="数据噪声清洗"></a><strong>数据噪声清洗</strong></h2><p>噪声清洗是本赛题的<strong>第一大提分点</strong>，在这里我们使用一个简易的分类模型，将数据每1000条切割成一份，切割成60份，对每一份数据单独作为验证集，如果验证集的AUC几乎接近于0.5，则验证集中的数据大多数为干扰数据。如下图所示，从图中我们可以得出，前50折数据分类效果明显，为可用数据。后10折数据AUC均接近0.5，为干扰数据，在后续训练中被舍弃，只取前50000条数据作为训练集：</p>
+<p><img src="/img/bdci_shuju5.png" alt="image-20230404173127836"></p>
+<h2 id="数据分布检验"><a href="#数据分布检验" class="headerlink" title="数据分布检验"></a><strong>数据分布检验</strong></h2><p>我们使用对抗验证对各数据集分布做了充分验证，结果如下表格所示：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>对抗检验数据1</strong></th>
+<th align="center"><strong>对抗检验数据2</strong></th>
+<th align="center"><strong>AUC</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">训练集</td>
+<td align="center">TestA全部数据</td>
+<td align="center">0.6</td>
+</tr>
+<tr>
+<td align="center">训练集</td>
+<td align="center">TestA后1w条数据</td>
+<td align="center">0.5</td>
+</tr>
+<tr>
+<td align="center">训练集</td>
+<td align="center">TestB全部数据</td>
+<td align="center">0.6</td>
+</tr>
+<tr>
+<td align="center">TestA全部数据</td>
+<td align="center">TestB全部数据</td>
+<td align="center">0.7</td>
+</tr>
+<tr>
+<td align="center">训练集</td>
+<td align="center">TestA+TestB</td>
+<td align="center">0.5</td>
+</tr>
+</tbody></table>
+<p>根据对抗验证结果得到如下数据分布结论，因为本身本赛题就线上线下不一致，经常线下CV降低,线上A榜得分很高，如果直接拿A榜最好成绩提交可以看到很容易过拟合B榜，<strong>这也是我们认为我们最终第一名的关键</strong>（猜的。</p>
+<p>我们最终选择相信<strong>线下CV</strong>，选择<strong>训练集效果最好且在A榜效果比较好</strong>的模型，而<strong>非A榜成绩最好</strong>的模型。我们认为这样模型的<strong>泛化能力更强，过拟合风险更小</strong>。</p>
+<p><img src="/img/bdci_shuju6.png" alt="bdci_shuju6"></p>
+<h2 id="未标注数据集"><a href="#未标注数据集" class="headerlink" title="未标注数据集"></a>未标注数据集</h2><p>本赛题官方给了部分未标注数据，但最终我们认为这部分是<strong>错误数据</strong>，且没有听说任何队伍有效利用了这部分数据</p>
+<p><img src="/img/bdci_shuju7.png" alt="bdci_shuju7"></p>
+<p><img src="/img/bdci_shuju8.png" alt="bdci_shuju8"></p>
+<p>上方为训练集，下方为为标注数据，我们可以看到两数据集除前三个类别特征外，后方数值特征为未标注数据集是训练集的<strong>三倍</strong>关系，前三个类别特征则没有任何关系，在<strong>训练集为有效数据</strong>的前提下，我们认为<strong>未标注数据集是错误数据</strong>。</p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>因为本赛题是<strong>匿名特征</strong>加模拟数据，加上数据没有什么复杂信息（时间，文本等）表示，因此这部分就采用了一些常规手法。主要线上线下不一致，全靠提交，尝试了很多但大部分没用。</p>
+<p>•类别特征处理：LabelEncoder + 类别特征转化</p>
+<p>•数值特征处理：所有数值特征除以3，尝试了很多归一化方式对public都是负增长。</p>
+<p>•交叉特征构造：直接使用暴力多项式进行交叉特征构造，通过判断特征重要性和特征的排序重要性进行筛选的方法<strong>基本无效</strong></p>
+<p>•特征降维处理：通过PCA和NMF进行特征降维构建新特征。</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>本次赛题是一个典型的匿名结构化比赛，因此可以考虑直接使用树模型来进行建模，具体模型：</p>
+<p>•LightGBM</p>
+<p>•CatBoost</p>
+<p>•XGBoost</p>
+<p>•TabNet</p>
+<p>每个模型针对模型特点做了不同的参数调整和特征选择，：</p>
+<p><strong>LGBM (Max Public 0.91246) ：</strong>一直以来机器学习效果最好的单模，模型使用’<strong>dart</strong>‘与AMEX比赛一致(yyds)，lightgbm本身不支持dart模式下的早停，有需要的可以去kaggle找一下开源方法。还有就是lightgbm在使用’GPU‘运算的时候默认使用<strong>32位浮点数</strong>求和，在某些情况下会导致每次训练结果都有一定差异，可以将<code>&#39;gpu_use_dp&#39;</code>参数设置为<strong>True</strong>，使用<strong>64位浮点数</strong>计算解决，当然可以不解决有时候有意想不到的惊喜。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;objective&#x27;</span>: <span class="string">&#x27;binary&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;boosting_type&#x27;</span>: <span class="string">&#x27;dart&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;metric&#x27;</span>: <span class="string">&#x27;auc&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.05</span>,</span><br><span class="line">    <span class="string">&#x27;num_leaves&#x27;</span>: <span class="number">2</span> ** <span class="number">5</span> - <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">&#x27;tree_learner&#x27;</span>: <span class="string">&#x27;serial&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;colsample_bytree&#x27;</span>: <span class="number">0.8</span>,</span><br><span class="line">    <span class="string">&#x27;num_boost_round&#x27;</span>: <span class="number">1500</span>,</span><br><span class="line">    <span class="string">&#x27;seed&#x27;</span>: <span class="number">2021</span>,</span><br><span class="line">    <span class="string">&#x27;device_type&#x27;</span>: <span class="string">&#x27;gpu&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;lambda_l2&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">&#x27;feature_fraction_seed&#x27;</span>: <span class="number">2021</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>CAT (Max Public 0.91238)</strong> : Cat 在我的几个比赛或任务中GPU训练的效果一直都远差于CPU训练，不知道为啥……</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;iterations&#x27;</span>: <span class="number">1500</span>,</span><br><span class="line">    <span class="string">&#x27;depth&#x27;</span>: <span class="number">8</span>,</span><br><span class="line">    <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.05</span>,</span><br><span class="line">    <span class="string">&#x27;l2_leaf_reg&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">&#x27;loss_function&#x27;</span>: <span class="string">&#x27;Logloss&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;num_leaves&#x27;</span>: <span class="number">2</span> ** <span class="number">5</span> - <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;cat_features&#x27;</span>: x,</span><br><span class="line">    <span class="string">&#x27;od_type&#x27;</span>: <span class="string">&#x27;Iter&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;custom_loss&#x27;</span>: <span class="string">&#x27;AUC&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;eval_metric&#x27;</span>: <span class="string">&#x27;AUC&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;random_seed&#x27;</span>: <span class="number">2021</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**Tabnet **：Tabnet 单模行本身效果并不出色，但预测结果与gbdt树模型差异较大，为模型融合提供了很好的基础。由于比赛进度没有研究tabnet调参，根据对GBDT模型调参的把握，在TabNet默认参数上进行了改进，不一定是很好的参数结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">n_d=<span class="number">32</span>,</span><br><span class="line">n_a=<span class="number">32</span>,</span><br><span class="line">n_steps=<span class="number">5</span>,</span><br><span class="line">gamma=<span class="number">1.3</span>,</span><br><span class="line">n_independent=<span class="number">3</span>,</span><br><span class="line">n_shared=<span class="number">3</span>,</span><br><span class="line">momentum=<span class="number">0.02</span>,</span><br><span class="line">clip_value=<span class="literal">None</span>,</span><br><span class="line">verbose=<span class="number">5</span>,</span><br><span class="line">lambda_sparse=<span class="number">1e-3</span>,</span><br><span class="line">optimizer_fn=torch.optim.Adam,</span><br><span class="line">optimizer_params=<span class="built_in">dict</span>(lr=<span class="number">2e-3</span>, weight_decay=<span class="number">1e-3</span>),</span><br><span class="line">scheduler_fn=torch.optim.lr_scheduler.CosineAnnealingWarmRestarts,</span><br><span class="line">scheduler_params=&#123;<span class="string">&#x27;T_0&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">                  <span class="string">&#x27;eta_min&#x27;</span>: <span class="number">1e-4</span>,</span><br><span class="line">                  <span class="string">&#x27;T_mult&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">                  <span class="string">&#x27;last_epoch&#x27;</span>: -<span class="number">1</span>&#125;,</span><br><span class="line">mask_type=<span class="string">&#x27;sparsemax&#x27;</span>,</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模型融合技巧"><a href="#模型融合技巧" class="headerlink" title="模型融合技巧"></a>模型融合技巧</h2><p>直接使用了基于单模型结果的加权平均进行模型融合，尝试过stacking效果不是很好。</p>
+<h2 id="什么有用"><a href="#什么有用" class="headerlink" title="什么有用"></a>什么有用</h2><p>介绍了部分我们比赛过程中提分的要点内容，部分内容虽然对A榜成绩有提升，但考虑到<strong>过拟合</strong>问题，并没有在最终提交时使用。</p>
+<p><img src="/img/bdci_1.png" alt="bdci_1"></p>
+<h2 id="什么不起作用或没有用？"><a href="#什么不起作用或没有用？" class="headerlink" title="什么不起作用或没有用？"></a>什么不起作用或没有用？</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/code/gauravbrills/tabtransformer-training">Tabformer</a>：Tabformer模型调整效果一直不好，也没有很好的融合和集成 。</li>
+<li>归一化：尝试了MINMAX，standard scaler线性归一化以及powertransformer这种向正太分布映射的归一化方式，效果都不是很好，我们认为是大部分数据都集中在0或小值，但是每个特征最大值又较大造成的。</li>
+<li>未标注数据：我们认为是错误数据。</li>
+<li>Stacking融模: A榜效果不好，主要是线上线下不一致，本地CV不可信造成的，但B榜数据发布后基于我们对数据分布的猜想Stacking可能是有效的。</li>
+</ul>
+<p>====================================================================================================================================================================================================================================================================================</p>
+<p>如何运行代码</p>
+<p><strong>暂时不开源</strong></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/iconie_alloy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/ai-er-lan-xue-da">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/3286578617">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/xiaotao.nie.5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/albert51966">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/小涛-聂-80964aba">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://www.10000h.top">10000H</a></span>
+        <span>/</span>
+        
+        <span><a href="https://weihaocai.top">Albert&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://giscus.app/client.js"
+    data-repo="aircloud/hexo-aircloud-blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMjkwNDgyNjg="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOB7EezM4COhKJ"
+    data-mapping="title"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+
+
+</html>
