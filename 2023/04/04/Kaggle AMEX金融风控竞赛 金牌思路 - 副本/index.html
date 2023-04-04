@@ -152,13 +152,13 @@
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#BDCI" title="BDCI">BDCI</a>
-        <span>/</span>
-        
         <a class="tag" href="/tags/#AI竞赛" title="AI竞赛">AI竞赛</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#结构化" title="结构化">结构化</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#BDCI" title="BDCI">BDCI</a>
         <span>/</span>
         
         
@@ -182,13 +182,12 @@
 <li>互联网类特征</li>
 <li>通话类特征</li>
 </ul>
-<p><strong>其中这些变量为类别变量：</strong></p>
-<p> [‘B_30’, ‘B_38’, ‘D_114’, ‘D_116’, ‘D_117’, ‘D_120’, ‘D_126’, ‘D_63’, ‘D_64’, ‘D_66’, ‘D_68’]</p>
-<p>是为每个customer_ID预测未来付款违约的概率（目标 = 1），每个文件内容的介绍如下：</p>
-<p>train_data.csv - 每个 customer_ID 具有多个日期的训练数据</p>
-<p>train_labels.csv - 每个 customer_ID 的目标标签</p>
-<p>test_data.csv - 对应的测试数据；您的目标是预测每个 customer_ID 的目标标签</p>
-<p>sample_submission.csv - 格式正确的示例提交文件</p>
+<p>每个文件介绍如下：</p>
+<p>train.csv: 训练集数据，共59872条数据，每个ID一行代表一个人</p>
+<p>dataNoLabel.csv: 训练集未标注数据，共39884条数据</p>
+<p>dataA.csv: 测试集A数据，共49858条数据</p>
+<p>dataB.csv: 测试集B数据，共49926条数据</p>
+<p>submit_example.csv - 格式正确的示例提交文件</p>
 <h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>首先我们来查看下数据集，在数据集中的数据字段基本进行了匿名处理：</p>
 <p><img src="/img/amex_shujuji1.png" alt="image-20230404005728070"></p>
 <p>在数据集中也有较多的字段包含了缺失值：</p>
