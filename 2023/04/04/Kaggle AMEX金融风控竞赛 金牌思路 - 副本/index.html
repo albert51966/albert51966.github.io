@@ -12,7 +12,7 @@
 
     <title>
         
-        Kaggle AMEX金融风控竞赛 金牌思路 - Albert 日常
+        CCF BDCI2023 返乡发展人群预测 第一名思路 - Albert 日常
         
     </title>
 
@@ -144,21 +144,21 @@
 
 <div class="post-container">
     <div class="post-title">
-        Kaggle AMEX金融风控竞赛 金牌思路
+        CCF BDCI2023 返乡发展人群预测 第一名思路
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-04-04 00:40:05</span></span>
+        <span class="attr">发布于：<span>2023-04-04 09:27:05</span></span>
         
         <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#BDCI" title="BDCI">BDCI</a>
+        <span>/</span>
         
         <a class="tag" href="/tags/#AI竞赛" title="AI竞赛">AI竞赛</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#结构化" title="结构化">结构化</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#Kaggle" title="Kaggle">Kaggle</a>
         <span>/</span>
         
         
@@ -168,17 +168,20 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h2 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h2><p>《<strong>American Express - Default Prediction</strong>, Predict if a customer will default in the future》 基本上是2022年最大的kaggle比赛了，结构化的题相对入门门槛较低，加上很火的金融属性让最终参赛队伍一度达到<strong>5000支</strong>。最终算是侥幸在切榜的时候靠抖动从后排冲上了金牌，最终排名（1X / 4874）。Kaggle比赛的特点一直是数据量太大（同时吐槽一些国内比赛数据量太小），本次比赛原始数据数据量就高达<strong>50GB</strong>，在做特征时对内存的需求飙升，我们最终的方案最小也要<strong>40GB</strong>的内存才能运行，中间尝试一些方法的时候对内存挑战更大。而且庞大的数据导致训练一个模型就需要一天时间，更别说多个模型融合，刚开始根本不敢尝试对模型调参，对新手不是很友好。</p>
-<h2 id="赛题任务"><a href="#赛题任务" class="headerlink" title="赛题任务"></a>赛题任务</h2><p>信用违约预测是管理消费贷款业务风险的核心。信用违约预测允许贷方优化贷款决策，从而带来更好的客户体验和稳健的商业经济。当前的模型可以帮助管理风险。但是有可能创建更好的模型，这些模型的性能优于当前使用的模型。美国运通是一家全球综合支付公司。作为世界上最大的支付卡发行商，他们为客户提供丰富生活和建立商业成功的产品、见解和体验。</p>
-<p>在本次比赛中，<strong>您将运用机器学习技能来预测信用违约</strong>。具体来说，<strong>您将利用工业规模的数据集来构建机器学习模型</strong>，以挑战生产中的当前模型。训练、验证和测试数据集包括时间序列行为数据和匿名客户档案信息。您可以自由探索任何技术来创建最强大的模型，从创建特征到在模型中以更有机的方式使用数据。</p>
+        <h2 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h2><p>本次比赛是中国计算机学会举办的，<strong>第十届大数据与计算智能大赛</strong>下面唯二的两个结构化赛题，最终名次是<strong>（1/2297)<strong>。说实话这道题可供总结和学习的地方不多，数据是标准的</strong>简单结构化</strong>类型，不包含任何时间、多模态（图像、文本、语音）信息需要处理。重点是如何做好数据挖掘工作，包括<strong>除噪</strong>（最重要），数据分布差异检验，无标签数据的认识，训练集、测试集A、测试集B数据特点和差异的挖掘等。赛题数据经过模拟和脱敏后一言难尽，<strong>线上线下不一致</strong>，本地CV不可信，我的方法主要就是靠不断提交去试（不知道大佬怎么去做），我最后提交了166次，最高队伍我看提交了快200次。（奖金还没收到，不敢再往下评价赛题，以后有机会细说），总而言之<strong>新手可以花两分钟看一下思路，不用自己去试，可供参考的意义不大</strong>。</p>
+<h2 id="赛题任务"><a href="#赛题任务" class="headerlink" title="赛题任务"></a>赛题任务</h2><p>近年来，中国经济飞速发展，国际地位和国际影响力不断提高，科技发展水平更是突飞猛进。以北京、上海、广州、深圳等城市为首的一线大城市，更是带领着我国经济稳步发展。然而，随着一线城市的生活压力不断增大，越来越多的年轻人选择了返回家乡发展。</p>
+<p>在本次比赛中，您将运用<strong>机器学习</strong>技能，基于中国联通的大数据能力，通过使用对联通的<strong>信令数据、通话数据、互联网行为</strong>等数据进行建模，对个人是否会<strong>返乡工作</strong>进行判断。</p>
 <p>比赛链接：</p>
-<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/competitions/amex-default-prediction">https://www.kaggle.com/competitions/amex-default-prediction</a></p>
-<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>本次比赛的评估指标 𝑀 是排名排序的两个度量的平均值：归一化基尼系数 𝐺 和 4% 的违约率 𝐷组成：<img src="/img/amex_metric.png" alt="Image"></p>
-<p>对于子指标 𝐺 和 𝐷，负标签的权重为 20 以调整下采样。计算过程可以从这里找到</p>
-<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/code/inversion/amex-competition-metric-python">https://www.kaggle.com/code/inversion/amex-competition-metric-python</a></p>
-<h2 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a><strong>数据介绍</strong></h2><p>本次比赛的目的是根据客户每月的客户资料预测客户未来不偿还信用卡余额的概率。目标二元变量是通过观察最近一次信用卡账单后 18 个月的绩效窗口来计算的，如果客户在最近一次账单日后的 120 天内未支付到期金额，则将其视为违约事件。</p>
-<p>该数据集包含每个客户在每个报表日期的汇总配置文件特征。<strong>特征通过了匿名和归一化处理，特征可以分为以下类别：</strong></p>
-<p>D_* = 拖欠变量<br>S_* = 支出变量<br>P_* = 付款变量<br>B_* = 平衡变量<br>R_* = 风险变量</p>
+<p><a target="_blank" rel="noopener" href="https://www.datafountain.cn/competitions/581">https://www.datafountain.cn/competitions/581</a></p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>本次比赛使用ROC曲线下面积AUC（Area Under Curve）作为评价指标，AUC越大，预测越准确。<img src="/img/bdci_auc.png" alt="img"></p>
+<p>其本质是预测结果正样本排在负样本前面的概率，反映的是分类器对样本的排序能力，因此我们需要输出的是概率而不是01分类。</p>
+<h2 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a><strong>数据介绍</strong></h2><p>赛题的目的是基于中国联通的大数据能力，通过使用对联通的信令、通话、互联网行为等数据进行建模，预测样本返回家乡工作发展的概率。 赛题数据由联通基站产生的用户信令数据、联通用户上网产生的上网行为数据及用户日常通话、短信产生的数据，并<strong>通过了匿名和模拟处理</strong>，特征可以分为以下类别：</p>
+<p>本次比赛的目的是根据客户每月的客户资料预测客户未来不偿还信用卡余额的概率。目标二元变量是通过观察最近一次信用卡账单后 18 个月的绩效窗口来计算的，如果客户在最近一次账单日后的 120 天内未支付到期金额，则将其视为违约事件。</p>
+<ul>
+<li>位置类特特征</li>
+<li>互联网类特征</li>
+<li>通话类特征</li>
+</ul>
 <p><strong>其中这些变量为类别变量：</strong></p>
 <p> [‘B_30’, ‘B_38’, ‘D_114’, ‘D_116’, ‘D_117’, ‘D_120’, ‘D_126’, ‘D_63’, ‘D_64’, ‘D_66’, ‘D_68’]</p>
 <p>是为每个customer_ID预测未来付款违约的概率（目标 = 1），每个文件内容的介绍如下：</p>
@@ -213,8 +216,6 @@
 
 <h4 id="深度学习模型"><a href="#深度学习模型" class="headerlink" title="深度学习模型"></a><strong>深度学习模型</strong></h4><p>由于本次比赛数据量比较多，因此深度学习模型也可以考虑。深度学习模型主要需要调整网络结构，下面是一个基础的LSTM代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_model1</span>(<span class="params">n_inputs</span>):</span></span><br><span class="line">    </span><br><span class="line">    x_input = Input(shape=(n_inputs,))</span><br><span class="line">    </span><br><span class="line">    x1 = Bidirectional(LSTM(units=<span class="number">768</span>, return_sequences=<span class="literal">True</span>))(x_input)</span><br><span class="line">    x2 = Bidirectional(LSTM(units=<span class="number">512</span>, return_sequences=<span class="literal">True</span>))(x1)</span><br><span class="line">    x3 = Bidirectional(LSTM(units=<span class="number">384</span>, return_sequences=<span class="literal">True</span>))(x2)</span><br><span class="line">    x4 = Bidirectional(LSTM(units=<span class="number">256</span>, return_sequences=<span class="literal">True</span>))(x3)</span><br><span class="line">    x5 = Bidirectional(LSTM(units=<span class="number">128</span>, return_sequences=<span class="literal">True</span>))(x4)</span><br><span class="line">    </span><br><span class="line">    z2 = Bidirectional(GRU(units=<span class="number">384</span>, return_sequences=<span class="literal">True</span>))(x2)</span><br><span class="line">    </span><br><span class="line">    z31 = Multiply()([x3, z2])</span><br><span class="line">    z31 = BatchNormalization()(z31)</span><br><span class="line">    z3 = Bidirectional(GRU(units=<span class="number">256</span>, return_sequences=<span class="literal">True</span>))(z31)</span><br><span class="line">    </span><br><span class="line">    z41 = Multiply()([x4, z3])</span><br><span class="line">    z41 = BatchNormalization()(z41)</span><br><span class="line">    z4 = Bidirectional(GRU(units=<span class="number">128</span>, return_sequences=<span class="literal">True</span>))(z41)</span><br><span class="line">    </span><br><span class="line">    z51 = Multiply()([x5, z4])</span><br><span class="line">    z51 = BatchNormalization()(z51)</span><br><span class="line">    z5 = Bidirectional(GRU(units=<span class="number">64</span>, return_sequences=<span class="literal">True</span>))(z51)</span><br><span class="line">    </span><br><span class="line">    x = Concatenate(axis=<span class="number">2</span>)([x5, z2, z3, z4, z5])</span><br><span class="line">    </span><br><span class="line">    x = Dense(units=<span class="number">128</span>, activation=<span class="string">&#x27;selu&#x27;</span>)(x)</span><br><span class="line">    </span><br><span class="line">    x_output = Dense(units=<span class="number">1</span>)(x)</span><br><span class="line"></span><br><span class="line">    model = Model(inputs=x_input, outputs=x_output, </span><br><span class="line">                  name=<span class="string">&#x27;DNN_Model&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> model            </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 
 
 
